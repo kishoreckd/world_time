@@ -9,7 +9,12 @@ class WorldTime {
   String? time; //The time in that loaction
   String flag; //url to asset an flag
   String url; //Location url api at the end
-  WorldTime({required this.location, required this.flag, required this.url});
+  bool? isDayTime;
+  WorldTime(
+      {required this.location,
+      required this.flag,
+      required this.url,
+      required this.isDayTime});
 
   Future<void> getTime() async {
     try {
@@ -30,6 +35,9 @@ class WorldTime {
       now = now.add(Duration(hours: int.parse(offset)));
       print(now);
 
+      /***CHecking Day or night by time */
+      isDayTime = now.hour > 6 && now.hour < 20 ? true : false;
+      /**Setting the time format with intl package */
       time = DateFormat.jm().format(now);
     } catch (e) {
       print('caught error:$e');
