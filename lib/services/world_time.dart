@@ -33,7 +33,7 @@ class WorldTime {
       /***Creating a date time object */
       DateTime now = DateTime.parse(dateTime);
       now = now.add(Duration(hours: int.parse(offset)));
-      print(now);
+      // print(now);
 
       /***CHecking Day or night by time */
       isDayTime = now.hour > 6 && now.hour < 20 ? true : false;

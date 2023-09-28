@@ -28,7 +28,7 @@ class _LoadingState extends State<Loading> {
       'time': instance.time,
       'isDayTime': instance.isDayTime
     });
-    print(instance.time);
+    // print(instance.time);
 
     setState(() {
       time = instance.time!;
