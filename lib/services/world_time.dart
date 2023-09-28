@@ -2,6 +2,7 @@
 
 import 'package:http/http.dart';
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 class WorldTime {
   late String location; //location name for the uri
@@ -29,7 +30,7 @@ class WorldTime {
       now = now.add(Duration(hours: int.parse(offset)));
       print(now);
 
-      time = now.toString();
+      time = DateFormat.jm().format(now);
     } catch (e) {
       print('caught error:$e');
       time = 'could not get time and date';
