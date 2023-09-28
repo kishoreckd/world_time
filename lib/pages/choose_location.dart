@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 class ChooseLocation extends StatefulWidget {
@@ -8,6 +10,8 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
