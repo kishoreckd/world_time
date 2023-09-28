@@ -18,15 +18,43 @@ class _HomeState extends State<Home> {
     print(data);
     return Scaffold(
       body: SafeArea(
-          child: Column(
-        children: [
-          TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/location');
-            },
-            child: const Icon(Icons.edit_location),
-          ),
-        ],
+          child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 120.0, 0, 0),
+        child: Column(
+          children: [
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/location');
+              },
+              child: const Icon(Icons.edit_location),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  data['location'],
+                  style: TextStyle(
+                    fontSize: 28.0, 
+                    letterSpacing: 2.0
+                    ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Text(
+              data['time'],
+              style: TextStyle(
+                fontSize: 60.0, 
+                letterSpacing: 2.0
+                ),
+            )
+          ],
+        ),
       )),
     );
   }
