@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -11,18 +13,29 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  void getData() async {
-    var response =
-        await get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1'));
-    Map data = jsonDecode(response.body) as Map;
-    // ignore: avoid_print
-    print(data['title']);
+  void getTime() async {
+    /**Making the request to get date and time */
+    var response = await get(
+        Uri.parse('http://worldtimeapi.org/api/timezone/Europe/Tirane'));
+    var data = jsonDecode(response.body);
+    print(data);
+
+    /***Getting Properties from the data */
+    String dateTime = data['datetime'];
+    String offset = data['utc_offset'].substring(0, 3);
+    // print(dateTime);
+    // print(offset);
+
+    /***Creating a date time object */
+    DateTime now = DateTime.parse(dateTime);
+    now =now.add(Duration(hours: int.parse(offset)));
+    print(now);
   }
 
   @override
   void initState() {
     super.initState();
-    getData();
+    getTime();
   }
 
   @override
